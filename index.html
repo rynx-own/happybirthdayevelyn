@@ -11,11 +11,13 @@
 
     <div class="flowers-bg" id="bg-flowers"></div>
 
+    <!-- SCREEN 1: LOADING -->
     <div id="screen-loading" class="screen active">
         <div class="logo">🌷</div>
         <p>Preparing something special for you...</p>
     </div>
 
+    <!-- SCREEN 2: PIN -->
     <div id="screen-pin" class="screen">
         <div class="glass pin-glass">
             <h2>For You, Evelyn</h2>
@@ -45,7 +47,8 @@
             <p class="hint">Hint: our special date 💗</p>
         </div>
     </div>
-    
+
+    <!-- SCREEN 3: GIFT -->
     <div id="screen-gift" class="screen">
         <p>✨ Opening your gift... ✨</p>
         <div class="gift-wrapper" onclick="openGift()">
@@ -54,7 +57,8 @@
             <div class="gift-glow" id="gift-glow"></div>
         </div>
     </div>
-   
+
+    <!-- SCREEN 4: MAIN -->
     <div id="screen-main" class="screen">
         
         <div class="header-content">
@@ -63,7 +67,7 @@
             <p class="date typing-effect" id="typing-date"></p>
         </div>
 
-        
+        <!-- BUNGA -->
         <div id="bouquet-section" class="section-area reveal-on-scroll">
             <h3>— MY FIRST GIFT —</h3>
             <p class="subtitle">Tap each flower to place it!</p>
@@ -71,33 +75,27 @@
             <div class="flowers-container" id="bouquet-area">
                 <div class="stems">
                     <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMax meet" width="100%" height="100%">
-                        <!-- Tangkai Tengah -->
                         <path d="M200,200 L200,120" stroke="#4a8c5c" stroke-width="5" fill="none"/>
-                        <!-- Tangkai Kiri Bawah -->
                         <path d="M200,200 L120,150" stroke="#4a8c5c" stroke-width="5" fill="none"/>
-                        <!-- Tangkai Kanan Bawah -->
                         <path d="M200,200 L280,150" stroke="#4a8c5c" stroke-width="5" fill="none"/>
-                        <!-- Tangkai Kiri Atas -->
                         <path d="M200,200 L80,90" stroke="#4a8c5c" stroke-width="5" fill="none"/>
-                        <!-- Tangkai Kanan Atas -->
                         <path d="M200,200 L320,90" stroke="#4a8c5c" stroke-width="5" fill="none"/>
-                        <!-- Vas -->
                         <circle cx="200" cy="200" r="30" fill="#ff8ba7" opacity="0.9"/>
                         <ellipse cx="200" cy="185" rx="40" ry="10" fill="#ff8ba7" opacity="0.5"/>
                     </svg>
                 </div>
-                
             </div>
             
             <div id="flower-message-box" class="flower-message">
             </div>
         </div>
 
-        
+        <!-- SURAT -->
         <div id="letter-section" class="section-area reveal-on-scroll">
             <div class="letter-card">
                 <div class="letter-date">September 11</div>
-                <p class="letter-greeting">To My Wonderful Friend, Evelyn 💐</p>
+                <!-- UBAH TEKS DI BAWAH INI SAJA, JANGAN HAPUS TAG <p> dan </p> -->
+                <p class="letter-greeting">My dearest Evelyn, 🌼</p>
                 <p>On this special day, I just want you to know how grateful I am to have you in my life. Having you as my friend is one of those little blessings that makes life feel a lot brighter.</p>
                 <p>Your laughter, your kindness, and even all the random things you do somehow make ordinary days more memorable. Thank you for being someone I can laugh with, talk to, and share countless moments with. 🌷</p>
                 <p>Thank you for being you — for your kindness, your uniqueness, and the way you always bring your own light wherever you go. I hope you never forget how much you are appreciated by the people around you.</p>
@@ -108,26 +106,26 @@
             </div>
         </div>
 
-        
+        <!-- GALERI FOTO -->
         <div id="gallery-section" class="section-area reveal-on-scroll">
             <h2>Our Moments</h2>
             <div class="gallery-grid">
-                <div class="polaroid" onclick="openPhotoZoom('foto/foto1.jpg', '')">
+                <div class="polaroid" onclick="openPhotoZoom('foto/foto1.jpg', 'Our very first sunset together')">
                     <img src="foto/foto1.jpg" alt="Foto 1">
-                    <p></p>
+                    <p>Our very first sunset together</p>
                 </div>
-                <div class="polaroid" onclick="openPhotoZoom('foto/foto2.jpg', '')">
+                <div class="polaroid" onclick="openPhotoZoom('foto/foto2.jpg', 'Our favourite cafe in the corner of the city')">
                     <img src="foto/foto2.jpg" alt="Foto 2">
-                    <p></p>
+                    <p>Our favourite cafe in the corner of the city</p>
                 </div>
-                <div class="polaroid" onclick="openPhotoZoom('foto/foto3.jpg', '')">
+                <div class="polaroid" onclick="openPhotoZoom('foto/foto3.jpg', 'First time at the beach, just the two of us')">
                     <img src="foto/foto3.jpg" alt="Foto 3">
-                    <p></p>
+                    <p>First time at the beach, just the two of us</p>
                 </div>
             </div>
         </div>
 
-        
+        <!-- MUSIK -->
         <div id="music-section" class="section-area glass reveal-on-scroll">
             <h2>A Playlist For You</h2>
             
@@ -159,7 +157,7 @@
 
     </div>
 
-    
+    <!-- MODAL POPUP -->
     <div id="modal-overlay" class="modal-overlay">
         <div class="modal-content glass">
             <div class="modal-cake">🎂</div>
@@ -169,7 +167,7 @@
         </div>
     </div>
 
-    
+    <!-- MODAL ZOOM FOTO -->
     <div id="photo-zoom-overlay" class="modal-overlay" onclick="closePhotoZoom()">
         <div class="photo-zoom-card">
             <button class="close-photo" onclick="closePhotoZoom()">✕</button>
