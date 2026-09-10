@@ -29,6 +29,7 @@ const flowerMessages = {
     '🌷': "“A little bouquet for someone who deserves a world full of beautiful things.”",
     '💐': "“A little bouquet for someone who deserves a world full of beautiful things.”"
 };
+
 function inputPin(num) {
     if (pinCode.length < 6) {
         pinCode += num;
@@ -59,8 +60,7 @@ function goToScreen(id) {
             triggerModal();
             spawnBackgroundFlowers();
             initScrollAnimation();
-            // ⬇️ DIPERBAIKI: Delay 1.5 detik biar animasi halaman utama selesai dulu
-            setTimeout(startTypingEffect, 1500); 
+            setTimeout(startTypingEffect, 1500);
         }, 2000);
     }
 }
@@ -75,7 +75,6 @@ function openGift() {
         triggerModal();
         spawnBackgroundFlowers();
         initScrollAnimation();
-        // ⬇️ DIPERBAIKI: Delay 1.5 detik biar animasi halaman utama selesai dulu
         setTimeout(startTypingEffect, 1500);
     }, 1200);
 }
@@ -85,11 +84,11 @@ function spawnFlowers() {
     bouquetArea.innerHTML = ''; 
 
     const stemPositions = [
-        { left: 50, bottom: 55 },  // Tengah
-        { left: 30, bottom: 40 },  // Kiri Bawah
-        { left: 70, bottom: 40 },  // Kanan Bawah
-        { left: 20, bottom: 20 },  // Kiri Atas
-        { left: 80, bottom: 20 }   // Kanan Atas
+        { left: 50, bottom: 55 },
+        { left: 30, bottom: 40 },
+        { left: 70, bottom: 40 },
+        { left: 20, bottom: 20 },
+        { left: 80, bottom: 20 }
     ];
 
     for (let i = 0; i < 6; i++) {
@@ -225,16 +224,11 @@ function initScrollAnimation() {
     sections.forEach(section => observer.observe(section));
 }
 
-// ⬇️ DIPERBAIKI: Typing effect baru mulai setelah halaman utama stabil
 function startTypingEffect() {
     const text = "SEPTEMBER 11 — THE MOST SPECIAL DAY";
     const element = document.getElementById('typing-date');
     let i = 0;
-    element.textContent = ''; // Kosongkan dulu
-    
-    // Kursor berkedip
-    element.style.borderRight = '2px solid var(--accent-pink)';
-    element.style.paddingRight = '5px';
+    element.textContent = '';
 
     const typeInterval = setInterval(() => {
         if (i < text.length) {
@@ -242,12 +236,8 @@ function startTypingEffect() {
             i++;
         } else {
             clearInterval(typeInterval);
-            // Hilangkan kursor setelah selesai
-            setTimeout(() => {
-                element.style.borderRight = 'none';
-            }, 1000);
         }
-    }, 80); // Kecepatan ketik
+    }, 80);
 }
 
 window.onload = function() {
