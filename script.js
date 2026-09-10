@@ -59,7 +59,8 @@ function goToScreen(id) {
             triggerModal();
             spawnBackgroundFlowers();
             initScrollAnimation();
-            startTypingEffect();
+            // ⬇️ DIPERBAIKI: Delay 1.5 detik biar animasi halaman utama selesai dulu
+            setTimeout(startTypingEffect, 1500); 
         }, 2000);
     }
 }
@@ -74,7 +75,8 @@ function openGift() {
         triggerModal();
         spawnBackgroundFlowers();
         initScrollAnimation();
-        startTypingEffect();
+        // ⬇️ DIPERBAIKI: Delay 1.5 detik biar animasi halaman utama selesai dulu
+        setTimeout(startTypingEffect, 1500);
     }, 1200);
 }
 
@@ -223,23 +225,29 @@ function initScrollAnimation() {
     sections.forEach(section => observer.observe(section));
 }
 
+// ⬇️ DIPERBAIKI: Typing effect baru mulai setelah halaman utama stabil
 function startTypingEffect() {
     const text = "SEPTEMBER 11 — THE MOST SPECIAL DAY";
     const element = document.getElementById('typing-date');
     let i = 0;
-    element.textContent = '';
+    element.textContent = ''; // Kosongkan dulu
     
+    // Kursor berkedip
+    element.style.borderRight = '2px solid var(--accent-pink)';
+    element.style.paddingRight = '5px';
+
     const typeInterval = setInterval(() => {
         if (i < text.length) {
             element.textContent += text.charAt(i);
             i++;
         } else {
             clearInterval(typeInterval);
+            // Hilangkan kursor setelah selesai
             setTimeout(() => {
                 element.style.borderRight = 'none';
-            }, 500);
+            }, 1000);
         }
-    }, 80);
+    }, 80); // Kecepatan ketik
 }
 
 window.onload = function() {
