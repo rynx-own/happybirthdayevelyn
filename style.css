@@ -30,7 +30,7 @@ body {
     transition: all 0.3s ease;
 }
 
-
+/* SCREEN */
 .screen { display: none; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; flex-direction: column; position: relative; width: 100%; }
 .screen.active { display: flex; animation: fadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1); }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -39,7 +39,7 @@ body {
 #screen-loading p { font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 2px; }
 @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
-
+/* PIN */
 #screen-pin .glass { padding: 30px; max-width: 350px; width: 100%; text-align: center; position: relative; animation: fadeInUp 0.8s ease; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 #screen-pin h2 { font-size: 2rem; margin-bottom: 10px; font-style: italic; }
@@ -57,7 +57,7 @@ body {
 .pin-btn.icon { background: transparent; color: var(--text-soft); font-size: 1.2rem; display: flex; justify-content: center; align-items: center; }
 .hint { margin-top: 20px; font-size: 0.8rem; opacity: 0.6; font-style: italic; color: var(--accent-pink); }
 
-
+/* GIFT */
 #screen-gift { cursor: pointer; position: relative; }
 .gift-wrapper { position: relative; display: flex; justify-content: center; align-items: center; width: 200px; height: 200px; }
 .gift-box { font-size: 120px; z-index: 2; transition: all 0.5s ease; filter: drop-shadow(0 0 20px rgba(255,255,255,0.4)); }
@@ -71,21 +71,51 @@ body {
 @keyframes explosion { 0% { opacity: 0.6; transform: scale(1); } 100% { opacity: 0; transform: scale(2.5); } }
 @keyframes glowExplosion { 0% { opacity: 0; transform: scale(0); } 50% { opacity: 1; transform: scale(1.5); } 100% { opacity: 0; transform: scale(3); } }
 
-
+/* UTAMA */
 .flowers-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1; overflow: hidden; }
 #screen-main { flex-direction: column; position: relative; z-index: 10; text-align: center; padding-bottom: 100px; }
 
 .header-content { width: 100%; max-width: 800px; margin-top: 50px; animation: fadeInUp 1s ease; }
 h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 20px; }
 h1 span { color: var(--accent-pink); font-style: italic; }
-.date { letter-spacing: 5px; font-size: 0.9rem; opacity: 0.8; text-transform: uppercase; min-height: 20px; margin-top: 20px; }
-.typing-effect::after { content: '|'; animation: blink 0.7s infinite; color: var(--accent-pink); }
-@keyframes blink { 50% { opacity: 0; } }
 
+/* ============================================
+   FIX: Typing Effect Anti Tumpang Tindih
+   ============================================ */
+#typing-date {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: clamp(0.6rem, 3vw, 0.9rem);
+    letter-spacing: clamp(2px, 1vw, 5px);
+    text-align: center;
+    min-height: 1.5em;
+    line-height: 1.5;
+    opacity: 1 !important;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+#typing-date::after {
+    content: '|';
+    color: var(--accent-pink);
+    animation: blink-cursor 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* SECTION AREA */
 .section-area {
     width: 100%;
     max-width: 600px;
-    margin: 120px auto; 
+    margin: 120px auto;
     padding: 0;
     position: relative;
     z-index: 10;
@@ -102,6 +132,7 @@ h1 span { color: var(--accent-pink); font-style: italic; }
 h2, h3 { font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 20px; }
 .subtitle { font-size: 0.9rem; opacity: 0.8; margin-bottom: 30px; }
 
+/* BUNGA */
 #bouquet-section { text-align: center; }
 .flowers-container { position: relative; width: 100%; height: 300px; display: flex; justify-content: center; align-items: flex-end; margin-top: 30px; }
 .stems { position: absolute; width: 100%; height: 100%; z-index: 1; display: flex; justify-content: center; align-items: flex-end; }
@@ -115,12 +146,14 @@ h2, h3 { font-family: 'Playfair Display', serif; font-style: italic; margin-bott
 .flower-message .glow { color: var(--accent-pink); animation: textGlow 2s infinite; }
 @keyframes textGlow { 0%, 100% { text-shadow: 0 0 5px rgba(255, 139, 167, 0.5); } 50% { text-shadow: 0 0 20px rgba(255, 139, 167, 1); } }
 
+/* SURAT */
 .letter-card { background-color: var(--card-cream); color: var(--card-text); padding: 40px; border-radius: 5px; box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 0 20px rgba(255,255,255,0.8); font-family: 'Playfair Display', serif; text-align: left; font-size: 1.1rem; line-height: 2; }
 .letter-card p { color: var(--card-text); margin-bottom: 15px; }
 .letter-date { text-align: center; font-style: italic; margin-bottom: 30px; opacity: 0.6; font-size: 0.9rem; letter-spacing: 2px; }
 .letter-greeting { font-size: 1.3rem; margin-bottom: 20px; }
 .letter-signature { text-align: right; font-style: italic; margin-top: 30px; color: var(--accent-pink); }
 
+/* GALERI FOTO */
 .gallery-grid { display: flex; flex-direction: column; gap: 50px; align-items: center; padding: 20px; }
 .polaroid { background: white; padding: 15px 15px 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transform: rotate(-4deg); transition: 0.3s; width: 80%; max-width: 300px; cursor: pointer; overflow: hidden; }
 .polaroid:nth-child(2) { transform: rotate(4deg); }
@@ -128,6 +161,7 @@ h2, h3 { font-family: 'Playfair Display', serif; font-style: italic; margin-bott
 .polaroid img { width: 100%; height: 250px; object-fit: cover; }
 .polaroid p { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; color: #333; margin-top: 15px; font-size: 0.9rem; }
 
+/* ZOOM */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 100; }
 .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
 .photo-zoom-card { position: relative; max-width: 90%; max-height: 90vh; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: zoomIn 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
@@ -155,11 +189,13 @@ h2, h3 { font-family: 'Playfair Display', serif; font-style: italic; margin-bott
 .track-item { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 15px; cursor: pointer; text-align: left; transition: 0.3s; outline: none; }
 .track-item.active { background: var(--accent-pink); color: #471020; font-weight: bold; }
 
+/* MODAL */
 .modal-content { text-align: center; padding: 40px; max-width: 400px; }
 .modal-content h2 { font-size: 3rem; margin: 20px 0; }
 .modal-cake { font-size: 50px; margin-bottom: 20px; }
 .modal-content button { background: var(--accent-pink); color: white; border: none; padding: 10px 30px; border-radius: 30px; margin-top: 20px; cursor: pointer; font-family: 'Poppins', sans-serif; outline: none; }
 
+/* BUNGA MELAYANG */
 .floating-flower { position: absolute; font-size: 25px; opacity: 0.6; animation: floatFlower 10s infinite linear; pointer-events: none; }
 @keyframes floatFlower { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
 
